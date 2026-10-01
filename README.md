@@ -1,2 +1,7 @@
-# jump-game
-Uses a backward greedy approach, shifting the target goal closer to the start whenever a position can successfully reach the current goal.
+class Solution:
+    def canJump(self, nums: list[int]) -> bool:
+        goal = len(nums) - 1
+        for i in range(len(nums) - 2, -1, -1):
+            if i + nums[i] >= goal:
+                goal = i
+        return goal == 0       
